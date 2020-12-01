@@ -1,7 +1,11 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CodeEditor from './components/CodeEditor'
 import CodeBlock from './components/Codeblock'
 import ThemeSwitcher from './components/ThemeSwitcher'
+import { Dropdown, Button } from 'react-bootstrap'
+
+
 
 /*
 
@@ -41,37 +45,30 @@ const changeTheme = () =>{
   const current_theme = '';
 }
 
+const addCell = () =>{
+  const workspace = document.getElementById('workspace');
+  console.log('Adding cell')
+}
+
 
 function App() {
   return (
     <div className="App">
 
-      <body className="App-container">
-      <div className="btn-group">
+      <div className="App-container" id='workspace'>
+        <ThemeSwitcher/>
 
-          <button type="button" className='btn btn-dark'>Choisir Theme</button>
-          
-          <button type="button" className='btn btn-dark dropdown-toggle dropdown-toggle-split' data-toggle="dropdown-menu" aria-haspopup="true" aria-expanded="false">
-            <span className="sr-only">Toggle Theme Dropdown</span>
-          </button>
-        
-        <div className="dropdown-menu">
-        
-          <a className="dropdown-item" href="#" >Theme lunimeux</a>
-          <a className="dropdown-item" href="#" >Theme dark</a>
-          
-          <div className="dropdown-divider"></div>
-          
-          <a className="dropdown-item" href="#">Default Theme</a>
-        </div>
+          <div>
+            <Button variant="outline-dark" onClick = { addCell() } >Code</Button>{' '}
+            <Button variant="outline-warning" onClick = { addCell() } >Text</Button>{' '}
 
-      </div>     
+          </div>
 
-        <div>
-        <CodeBlock code ={md}/>
+          <div>
+            <CodeBlock code ={md}/>
 
-        </div>
-      </body>
+          </div>
+      </div>
 
     </div>
   );

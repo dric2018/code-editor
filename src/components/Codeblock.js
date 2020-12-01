@@ -5,18 +5,24 @@ import { tomorrow, vs, vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styl
 
 import ReactMarkdown from 'react-markdown';
 
-const renderers = {
-    code: ({language, value}) => {
-      return <SyntaxHighlighter style={vs} language={language} children={value} />
-    }
-  }
 
 
 
 
 class CodeBlock extends Component {
 
+    
+
     render(){
+
+        const theme = `${vs}`
+
+        const renderers = {
+            code: ({language, value}) => {
+              return <SyntaxHighlighter style={vscDarkPlus} language={language} children={value} />
+            }
+          }
+        
         const code = ` Enter your code here
 
         ~~~js
