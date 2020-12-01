@@ -4,6 +4,7 @@ import CodeEditor from './components/CodeEditor'
 import CodeBlock from './components/Codeblock'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import { Dropdown, Button } from 'react-bootstrap'
+import React from 'react-dom';
 
 
 
@@ -41,16 +42,6 @@ const fn = (name) =>{
 `
 
 
-const changeTheme = () =>{
-  const current_theme = '';
-}
-
-const addCell = () =>{
-  const workspace = document.getElementById('workspace');
-  console.log('Adding cell')
-}
-
-
 function App() {
   return (
     <div className="App">
@@ -59,8 +50,8 @@ function App() {
         <ThemeSwitcher/>
 
           <div>
-            <Button variant="outline-dark" onClick = { addCell() } >Code</Button>{' '}
-            <Button variant="outline-warning" onClick = { addCell() } >Text</Button>{' '}
+            <Button variant="outline-dark" >Code</Button>{' '}
+            <Button variant="outline-warning" >Text</Button>{' '}
 
           </div>
 
