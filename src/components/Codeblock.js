@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow, vs, } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { tomorrow, twilight, vs, vscDarkPlusk} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import ReactMarkdown from 'react-markdown';
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
 
@@ -17,13 +18,11 @@ class CodeBlock extends Component {
 
         const renderers = {
             code: ({language, value}) => {
-              return <SyntaxHighlighter style={vs} language={language} children={value} />
+              return <SyntaxHighlighter style={tomorrow} language={language} children={value} />
             }
           }
         
-        const code = ` Enter your code here
-
-        ~~~python
+        const code = `sample code\n   ~~~python
         import pandas as pd
         import tensorflow as tf 
         import torch.nn as nn
@@ -35,10 +34,8 @@ class CodeBlock extends Component {
 
           def forward(self, x):
             pass
-
-
-        ~~~
-        `;
+          
+  ~~~`;
 
 
         return <ReactMarkdown className= {"code-block"} renderers = {renderers} children={this.props.code || code}/>

@@ -36,13 +36,13 @@
 
 
 div.code-block {
-  margin: 2cm;
-  border-radius: 25px;
+  margin: cm;
+  border-radius: 3px;
   border: 1px solid red;
 }
 
 div.code-block.pre {
-  margin: 2cm;
+  margin: 5cm;
   border-radius: 25px;
   border: 1px solid red;
 }

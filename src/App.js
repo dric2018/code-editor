@@ -1,46 +1,20 @@
 import './App.css';
+import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CodeBlock from './components/Codeblock';
 import MyEditor from './components/CodeEditor';
 import ThemeSwitcher from './components/ThemeSwitcher'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { Dropdown, Button } from 'react-bootstrap'
-import React from 'react-dom';
+import EditorV2 from './components/CodeMarkdownEditor';
+import { Editor } from 'draft-js';
+
 
 
 
 /*
 
-const md = ` can you see this python code ?
-
-~~~python
-import pandas as pd
-import tensorflow as tf 
-import torch.nn as nn
-
-class Classifier(nn.module):
-  def __init__(self):
-    super(Classifier, self).__init__()
-
-
-  def forward(self, x):
-    pass
-
-
-~~~
-`
-
-
-const md = ` Enter your code here
-
-~~~js
-
-const fn = (name) =>{
-    return "hello" + name
-}
-
-~~~
-`
 
  <div>
             <Button variant="outline-dark" >Code</Button>{' '}
@@ -50,24 +24,6 @@ const fn = (name) =>{
 
 */
 
-const md = ` can you see this python code ?
-
-~~~python
-import pandas as pd
-import tensorflow as tf 
-import torch.nn as nn
-
-class Classifier(nn.module):
-  def __init__(self):
-    super(Classifier, self).__init__()
-
-
-  def forward(self, x):
-    pass
-
-
-~~~
-`
 
 
 function App() {
@@ -79,6 +35,7 @@ function App() {
 
       <div className="App-container" id='workspace'>
         <ThemeSwitcher/>{' '}
+        <h2>with Draft js</h2>
 
         <div className='container'>
 
@@ -95,9 +52,14 @@ function App() {
             </div>
           </div>
         </div>
+        <h2>with React markdown</h2>
+
+        <CodeBlock></CodeBlock>
 
 
-         
+        <h2>with React markdown editor</h2>
+        <EditorV2/>
+
         </div>
 
       </div>
