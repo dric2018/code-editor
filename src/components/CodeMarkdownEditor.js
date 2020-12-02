@@ -1,6 +1,10 @@
-import MEDitor from '@uiw/react-md-editor';
-
+import MEDitor, { commands, ICommand, TextState, TextApi } from '@uiw/react-md-editor';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow, twilight, vs, vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {EditorState} from 'draft-js'; 
 import React, {Component} from 'react';
+import katex from 'katex';
+import 'katex/dist/katex.css';
 
 const styles = {
     editor: {
@@ -9,18 +13,7 @@ const styles = {
       padding: "50px 0 0 0" 
     }
   };
-const mkdStr = `# Markdown Editor for React
 
-**Hello world!!!**
-
-\`\`\`python
-import tensorflow as tf
-import torch.nn as nn
-
-class Classifier(nn.module)
-
-\`\`\`
-`;
 
 
 class EditorV2 extends Component {
@@ -29,21 +22,43 @@ class EditorV2 extends Component {
 
         this.state = {
             editorState : ''
-        }
+        };
 
         this.onEditorStateChange = this.onEditorStateChange.bind(this);
 
     }
 
-    onEditorStateChange(editorState){
+    onEditorStateChange(newEditorState){
         this.setState({
-          editorState : editorState,
+          editorState : newEditorState,
         });
       }
+
+      
     render(){
+        
+
+        const {editorState} = this.state
+        
+        const renderers = {
+            code: ({language, value}) => {
+                return <SyntaxHighlighter style={tomorrow} language={language} children={value} />
+              }
+            }
+            
+        
+        
         return (
             <div className='container'>
-                <MEDitor height={200} value={this.editorState} onChange={this.onEditorStateChange} />
+                <MEDitor
+                hideToolbar={true}
+                 height={450} 
+                 value={editorState} 
+                 onChange={this.onEditorStateChange}
+                 commands={[commands.codeEdit, commands.codeLive]}
+                 //previewOptions={{renderers:renderers}} 
+
+                 />
             </div>
 
         );

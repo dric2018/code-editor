@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow, twilight, vs, vscDarkPlusk} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { tomorrow, twilight, vs, vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import ReactMarkdown from 'react-markdown';
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
 

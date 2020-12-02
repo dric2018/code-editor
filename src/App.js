@@ -8,7 +8,6 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { Dropdown, Button } from 'react-bootstrap'
 import EditorV2 from './components/CodeMarkdownEditor';
-import { Editor } from 'draft-js';
 
 
 
