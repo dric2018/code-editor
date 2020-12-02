@@ -32,12 +32,11 @@ class ThemeSwitcher extends Component {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                <Dropdown.Item href="#/action-2" onClick={e => this.chooseTheme('Dark', e)}>Dark theme</Dropdown.Item>
+                <Dropdown.Item href="#/action-2" onClick={e => this.chooseTheme('VsDark', e)}>Dark theme</Dropdown.Item>
                 <Dropdown.Item href="#/action-3" onClick={e => this.chooseTheme('Danger', e)}>Danger theme</Dropdown.Item>
 
                 </Dropdown.Menu>
             </Dropdown>
-
             </center>
 
             

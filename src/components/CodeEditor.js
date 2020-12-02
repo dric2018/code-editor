@@ -1,27 +1,61 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {dark, coy} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import React, { Component } from 'react';
+import {convertToRaw, draftToHtml, EditorState} from 'draft-js';
+import { Editor} from 'react-draft-wysiwyg';
 
+const styles = {
+  editor: {
+    border: '1px solid gray',
+    minHeight: '6em'
+  }
+};
 
-const renderers = {
-    code: ({language, value}) => {
-      return <SyntaxHighlighter style={dark} language={language} children={value} />
-    }
+class MyEditor extends Component{
+  
+  constructor(props){
+    super(props)
+
+    this.state = {
+      editorState: EditorState.createEmpty(),
+      html : ''
+    };
+    this.onEditorStateChange = this.onEditorStateChange.bind(this);
+    this.setEditor = (editor) => {
+      this.editor = editor;
+    };
+    
+    
   }
 
-  const md = ` can you see this javascript code ?
-  ~~~R
-  df <- read.table('');
-  ~~~
-  `
-
-const CodeEditor = () =>{
-    return <ReactMarkdown renderers = {renderers} children={md}/>
-        
-
-    
-}  
 
 
-export default CodeEditor;
+
+  onEditorStateChange(editorState){
+    this.setState({
+      editorState : editorState,
+      //html: draftToHtml( convertToRaw( editorState.getCurrentContent() ) )
+    });
+  }
+
+
+
+  render(){
+    return (
+      <div style={styles.editor} >
+          <Editor
+          editorState={this.state.editorState}
+          placeholder = {'Enter your text here'}
+          onEditorStateChange={
+            this.onEditorStateChange
+            }
+          />
+      </div>
+
+    ) 
+  }
+
+
+
+}
+
+
+export default MyEditor;

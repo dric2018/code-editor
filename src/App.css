@@ -14,23 +14,39 @@
 }
 
 .App-header {
-  background-color: #fff;
-  min-height: 100vh;
+  background-color: rgb(13, 30, 66);
+  min-height: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(48, 43, 43);
+  color: rgb(255, 255, 255);
 }
 
 .App-container {
   margin: 1cm;
+  align-items: left;
+  justify-content: left;
 }
 
 .App-link {
   color: #61dafb;
 }
+
+
+
+div.code-block {
+  margin: 2cm;
+  border-radius: 25px;
+  border: 1px solid red;
+}
+
+div.code-block.pre {
+  margin: 2cm;
+  border-radius: 25px;
+  border: 1px solid red;
+}
+
 
 @keyframes App-logo-spin {
   from {

@@ -1,8 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CodeEditor from './components/CodeEditor'
-import CodeBlock from './components/Codeblock'
+import CodeBlock from './components/Codeblock';
+import MyEditor from './components/CodeEditor';
 import ThemeSwitcher from './components/ThemeSwitcher'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { Dropdown, Button } from 'react-bootstrap'
 import React from 'react-dom';
 
@@ -28,7 +29,7 @@ class Classifier(nn.module):
 
 ~~~
 `
-*/
+
 
 const md = ` Enter your code here
 
@@ -41,25 +42,67 @@ const fn = (name) =>{
 ~~~
 `
 
-
-function App() {
-  return (
-    <div className="App">
-
-      <div className="App-container" id='workspace'>
-        <ThemeSwitcher/>
-
-          <div>
+ <div>
             <Button variant="outline-dark" >Code</Button>{' '}
             <Button variant="outline-warning" >Text</Button>{' '}
 
           </div>
 
-          <div>
-            <CodeBlock code ={md}/>
+*/
 
+const md = ` can you see this python code ?
+
+~~~python
+import pandas as pd
+import tensorflow as tf 
+import torch.nn as nn
+
+class Classifier(nn.module):
+  def __init__(self):
+    super(Classifier, self).__init__()
+
+
+  def forward(self, x):
+    pass
+
+
+~~~
+`
+
+
+function App() {
+  return (
+    <div className="App">
+    <div className="App-header">
+      <h3>Simple code editor with draft-js</h3>
+    </div>
+
+      <div className="App-container" id='workspace'>
+        <ThemeSwitcher/>{' '}
+
+        <div className='container'>
+
+        <div className='row'>
+          <div className='col m6'>
+            <div className='card-panel'>
+                <MyEditor/>
+            </div>
           </div>
+
+          <div className='col m6'>
+            <div className='card-panel'>
+                <h3>HTML translation</h3>
+            </div>
+          </div>
+        </div>
+
+
+         
+        </div>
+
       </div>
+
+  
 
     </div>
   );

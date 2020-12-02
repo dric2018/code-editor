@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {render} from 'react-dom';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow, vs, vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { tomorrow, vs, } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import ReactMarkdown from 'react-markdown';
 
@@ -15,27 +14,34 @@ class CodeBlock extends Component {
 
     render(){
 
-        const theme = `${vs}`
 
         const renderers = {
             code: ({language, value}) => {
-              return <SyntaxHighlighter style={vscDarkPlus} language={language} children={value} />
+              return <SyntaxHighlighter style={vs} language={language} children={value} />
             }
           }
         
         const code = ` Enter your code here
 
-        ~~~js
+        ~~~python
+        import pandas as pd
+        import tensorflow as tf 
+        import torch.nn as nn
 
-        const fn = (name) =>{
-            return "hello" + name
-        }
+        class Classifier(nn.module):
+          def __init__(self):
+            super(Classifier, self).__init__()
+
+
+          def forward(self, x):
+            pass
+
 
         ~~~
         `;
 
 
-        return <ReactMarkdown renderers = {renderers} children={this.props.code || code}/>
+        return <ReactMarkdown className= {"code-block"} renderers = {renderers} children={this.props.code || code}/>
 
     }
 }
