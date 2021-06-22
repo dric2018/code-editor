@@ -2,6 +2,14 @@
 
 In this repo I'll be using react components to build an online `Markdown-based` code editor
 
+# Preview
+<p align="center">
+  <img src="imgs/preview.png"
+  alt="Markdown Monster icon"
+      width=550
+      height=450/>
+</p>
+
 # Usage
 
 ## Step 1

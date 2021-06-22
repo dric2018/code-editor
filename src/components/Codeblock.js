@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import ReactMarkdown from "react-markdown";
 
@@ -10,7 +10,7 @@ class CodeBlock extends Component {
       code: ({ language, value }) => {
         return (
           <SyntaxHighlighter
-            style={twilight}
+            style={vscDarkPlus}
             language={language}
             children={value}
           />

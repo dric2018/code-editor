@@ -1,6 +1,6 @@
 import MEDitor, { commands } from "@uiw/react-md-editor";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import React, { Component } from "react";
 import "katex/dist/katex.css";
 
@@ -28,7 +28,7 @@ class EditorV2 extends Component {
       code: ({ language, value }) => {
         return (
           <SyntaxHighlighter
-            style={tomorrow}
+            style={vscDarkPlus}
             language={language}
             children={value}
           />
@@ -40,7 +40,7 @@ class EditorV2 extends Component {
       <div className="container">
         <MEDitor
           hideToolbar={true}
-          height={450}
+          height={600}
           value={editorState}
           onChange={this.onEditorStateChange}
           commands={[commands.codeEdit, commands.codeLive]}
