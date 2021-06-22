@@ -1,27 +1,24 @@
 import React, { Component } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow, twilight, vs, vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import ReactMarkdown from 'react-markdown';
-
-
-
-
+import ReactMarkdown from "react-markdown";
 
 class CodeBlock extends Component {
+  render() {
+    const renderers = {
+      code: ({ language, value }) => {
+        return (
+          <SyntaxHighlighter
+            style={twilight}
+            language={language}
+            children={value}
+          />
+        );
+      },
+    };
 
-    
-
-    render(){
-
-
-        const renderers = {
-            code: ({language, value}) => {
-              return <SyntaxHighlighter style={tomorrow} language={language} children={value} />
-            }
-          }
-        
-        const code = `sample code\n   ~~~python
+    const code = `sample code\n   ~~~python
         import pandas as pd
         import tensorflow as tf 
         import torch.nn as nn
@@ -36,11 +33,14 @@ class CodeBlock extends Component {
           
   ~~~`;
 
-
-        return <ReactMarkdown className= {"code-block"} renderers = {renderers} children={this.props.code || code}/>
-
-    }
+    return (
+      <ReactMarkdown
+        className={"code-block"}
+        renderers={renderers}
+        children={this.props.code || code}
+      />
+    );
+  }
 }
-
 
 export default CodeBlock;
