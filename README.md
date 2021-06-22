@@ -6,8 +6,8 @@ In this repo I'll be using react components to build an online `Markdown-based` 
 <p align="center">
   <img src="imgs/preview.png"
   alt="Markdown Monster icon"
-      width=550
-      height=450/>
+      width=850
+      height=600/>
 </p>
 
 # Usage
